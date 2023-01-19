@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Link rel="stylesheet" href="style.css"></Link>
+    <title>Formulário</title>
+</head>
+<body>
+    <div class ="content">
+        <h1>Formulário para Pacientes</h1>
+        <form id="form">
+            <div>
+                <input type="text" placeholder="Digite seu Nome" class="inputs required" oninput="nameValidate">
+                <span class="span-required"> Nome deve ter no mínimo 3 caracteres</span>
+            </div>
+            <div>
+                <input type="text" placeholder="Digite E-mail" class="inputs required">
+                <span class="span-required"> Digite um E-mail valido</span>
+            </div>
+            <div>
+                <input type="password" placeholder="senha" class="inputs required">
+                <span class="span-required"> Digite uma senha com no mínimo 8 caracteres</span>                
+            </div>
+            <textarea class="inputs"name="descricao" id="descricao" cols="25" rows="10" placeholder="Fale o que esta sentindo? "></textarea>
+            <p>Qual seu nível de dor?</p>
+            <div>
+                <input type="range" id="a" value="a" name="media-dor">
+                <label for="a">Alto</label>
+            </div>
+            <div class="box-select">
+                <div>
+                    <input type="range" id="m" value="m" name="media-dor">
+                    <label for="m">Médio</label>
+                </div>
+                <div>
+                    <input type="range" id="b" value="b" name="media-dor>
+                    <label for="b">Baixo</label>
+                </div>
+            </div>
+            
+            <p>Sexo:</p>
+            <div class="box-select">
+                <div>
+                    <input type="radio" id="m" value="m" name="sexo">
+                    <label for="m">Masculino</label>
+                </div>
+                <div>
+                    <input type="radio" id="f" value="f" name="sexo">
+                    <label for="f">Feminino</label>
+                </div>
+                <div>
+                    <input type="radio" id="o" value="o" name="sexo">
+                    <label for="o">Outro</label>
+                </div>
+                <p>Avalie sua experiência</p>
+                <div class="box-select">
+                    <div>
+                        <input type="checkbox" id="f" value="f" name="avaliacao">
+                        <label for="f">Feliz</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="t" value="t" name="avaliacao">
+                        <label for="t">Triste</label>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </div>             
+            </div>        
+        </form>
+    </div>
+</body>
+<script>
+    const form = document.getElementById('form');
+    const campos = document.querySelectorAll('.requerid');
+    const spans = document.querySelectorAll('.span-required');
+    const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
+
+    function setError(index){
+        campos[index].style.border = '2px solid #e63636';
+    }
+
+    function nomeValidate(){
+        if(campos[0].value.length < 3)
+        {
+            setError(0);
+        }
+        else
+        {
+            console.log('Nome Validado')
+        }
+        
+        
+    }
+
+</script>
+</html>
